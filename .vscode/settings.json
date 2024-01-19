@@ -86,5 +86,9 @@
         "typeinfo": "cpp",
         "variant": "cpp"
     },
-    "explorer.excludeGitIgnore": true
+    
+    "terminal.integrated.env.linux": {
+        "GTK_PATH": ""
+    },
+    // "explorer.excludeGitIgnore": true
 }

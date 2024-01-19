@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+  <xacro:include filename="inertial_macros.xacro" />
+  <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0023293 0.029139 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.9257" />
+      <inertia
+        ixx="0.0047878"
+        ixy="6.3714E-12"
+        ixz="1.7659E-21"
+        iyy="0.009547"
+        iyz="-7.7371E-24"
+        izz="0.004776" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find coorbot_description)/meshes/base_footprint.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find coorbot_description)/meshes/base_footprint.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="fwheel">
+    <xacro:inertial_sphere mass="0.05" radius="0.15">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:inertial_sphere>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.015" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.53725 0.53725 0.53725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.015" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fwheel_joint"
+    type="fixed">
+    <origin
+      xyz="0.125 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fwheel" />
+  </joint>
+  <link
+    name="rwheel">
+      <xacro:inertial_cylinder mass="0.1" length="0.02" radius="0.04">
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:inertial_cylinder>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find coorbot_description)/meshes/rwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find coorbot_description)/meshes/rwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.04 -0.16196 0.015"
+      rpy="-1.5708 3.1416 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="rwheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="0.012061 -0.0038653 0.00053309"
+        rpy="0 0 0" />
+      <mass
+        value="0.073082" />
+      <inertia
+        ixx="1.9579E-05"
+        ixy="-4.2823E-07"
+        ixz="1.0452E-07"
+        iyy="4.1417E-05"
+        iyz="-9.3469E-09"
+        izz="2.4126E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find coorbot_description)/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find coorbot_description)/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.083 0 0.0886"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lwheel">
+      <xacro:inertial_cylinder mass="0.1" length="0.02" radius="0.04">
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:inertial_cylinder>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find coorbot_description)/meshes/lwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find coorbot_description)/meshes/lwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.04 0.16196 0.015"
+      rpy="1.5708 3.1416 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="lwheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>
