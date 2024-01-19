@@ -8,7 +8,7 @@
             <!-- Wheel Information -->
             <left_joint>lwheel_joint</left_joint>
             <right_joint>rwheel_joint</right_joint>
-            <wheel_separation>0.35</wheel_separation>
+            <wheel_separation>0.33</wheel_separation>
             <wheel_diameter>0.2</wheel_diameter>
     
 

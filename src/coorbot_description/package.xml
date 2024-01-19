@@ -11,7 +11,6 @@
 
   <depend>robot_state_publisher</depend>
   <depend>rviz2</depend>
-  <depend>joint_state_publisher_gui</depend>
   <depend>gazebo</depend>
 
   <test_depend>ament_lint_auto</test_depend>
