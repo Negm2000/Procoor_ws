@@ -53,6 +53,7 @@ def generate_launch_description():
                 {'robot_description': robot_description}
             ]
         )
+    
         
         
     
@@ -60,7 +61,7 @@ def generate_launch_description():
     ld.add_action(rviz)
     ld.add_action(gazebo)
     ld.add_action(spawner)
-    ld.add_action(jsp)
+    # ld.add_action(jsp)
     ld.add_action(rsp)
     
 
